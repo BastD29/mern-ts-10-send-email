@@ -12,7 +12,7 @@ const register = async (req: Request, res: Response) => {
     }
 
     const user = new User({ email, password });
-    console.log("user in register controller:", user);
+    console.log("registered user:", user);
     await user.save();
     (req.session as SessionType).userId = (
       user._id as mongoose.Types.ObjectId
