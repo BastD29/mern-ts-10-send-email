@@ -1,18 +1,13 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import session from "express-session";
-import {
-  ALLOWED_ORIGIN,
-  NODE_ENV,
-  PORT,
-  SESSION_SECRET,
-} from "./config/environments";
+import { ALLOWED_ORIGIN, NODE_ENV, PORT } from "./config/environments";
 import auth from "./routes/auth";
 import { connectDB } from "./config/db";
+import session from "./config/session";
 
 connectDB();
-//
+
 const app = express();
 
 const corsOptions: cors.CorsOptions = {
@@ -35,18 +30,8 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(
-  session({
-    // store: store,
-    secret: SESSION_SECRET || "defaultSecret",
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      httpOnly: true,
-      maxAge: 60 * 30,
-    },
-  })
-);
+app.use(session);
+
 app.use("/", auth);
 
 app.listen(PORT, () => {
