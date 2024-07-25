@@ -1,8 +1,9 @@
 import express from "express";
-import { getPrivate, login } from "../controllers/auth";
+import { getPrivate, login, register } from "../controllers/auth";
 
 const router = express.Router();
 
+router.post("/register", register);
 router.post("/login", login);
 router.get("/private", getPrivate);
 
