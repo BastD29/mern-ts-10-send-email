@@ -1,30 +1,15 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import { ALLOWED_ORIGIN, NODE_ENV, PORT } from "./config/environments";
+import { NODE_ENV, PORT } from "./config/environments";
 import auth from "./routes/auth";
 import { connectDB } from "./config/db";
 import session from "./config/session";
+import { corsOptions } from "./config/cors";
 
 connectDB();
 
 const app = express();
-
-const corsOptions: cors.CorsOptions = {
-  origin: (origin, callback) => {
-    if (
-      !origin ||
-      origin.includes("Postman") ||
-      (ALLOWED_ORIGIN as string).includes(origin)
-    ) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true,
-};
 
 app.use(cors(corsOptions));
 app.use(express.json());
