@@ -6,8 +6,13 @@ import mongoose from "mongoose";
 const register = async (req: Request, res: Response) => {
   const { email, password } = req.body;
   try {
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ message: "User already exists" });
+    }
+
     const user = new User({ email, password });
-    console.log("user:", user);
+    console.log("user in register controller:", user);
     await user.save();
     (req.session as SessionType).userId = (
       user._id as mongoose.Types.ObjectId
