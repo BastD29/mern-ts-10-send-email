@@ -24,9 +24,19 @@ const register = async (req: Request, res: Response) => {
 };
 
 const login = async (req: Request, res: Response) => {
+  const { email, password } = req.body;
   try {
+    const user = await User.findOne({ email });
+    console.log("user in login:", user);
+    if (!user || !(await user.matchPassword(password))) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+    (req.session as SessionType).userId = (
+      user._id as mongoose.Types.ObjectId
+    ).toString();
+    res.json({ message: "User logged in" });
   } catch (error) {
-    res.status(401).send((error as Error).message);
+    res.status(500).json({ message: "Server error" });
   }
 };
 
