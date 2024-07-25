@@ -40,6 +40,23 @@ const login = async (req: Request, res: Response) => {
   }
 };
 
+const logout = async (req: Request, res: Response) => {
+  const session = req.session;
+  console.log("session:", session);
+
+  try {
+    session.destroy((err) => {
+      if (err) {
+        throw err;
+      }
+      res.clearCookie("connect.sid");
+      return res.status(200).json({ message: "Logout successful" });
+    });
+  } catch (error) {
+    return res.status(500).json({ message: "Logout failed", error });
+  }
+};
+
 const getProfile = async (req: Request, res: Response) => {
   const userId = (req.session as SessionType).userId;
   console.log("req.session.userId:", userId);
@@ -62,4 +79,4 @@ const getProfile = async (req: Request, res: Response) => {
   }
 };
 
-export { register, login, getProfile };
+export { register, login, logout, getProfile };
