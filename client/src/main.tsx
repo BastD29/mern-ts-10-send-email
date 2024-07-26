@@ -10,7 +10,17 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <AuthProvider>
       <App />
-      <ToastContainer />
+      <ToastContainer
+      // position="top-right"
+      // autoClose={5000}
+      // hideProgressBar={false}
+      // newestOnTop={false}
+      // closeOnClick
+      // rtl={false}
+      // pauseOnFocusLoss
+      // draggable
+      // pauseOnHover
+      />
     </AuthProvider>
   </React.StrictMode>
 );

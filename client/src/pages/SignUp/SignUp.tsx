@@ -3,6 +3,7 @@ import { RegisterParamsType, register } from "../../services/auth";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { toast } from "react-toastify";
 import style from "./SignUp.module.scss";
+import { useNavigate } from "react-router-dom";
 
 const formInitialValues: RegisterParamsType = {
   name: "",
@@ -13,8 +14,8 @@ const formInitialValues: RegisterParamsType = {
 const SignUp: FC = () => {
   const [formData, setFormData] = useState(formInitialValues);
   // const [error, setError] = useState<string>("");
-
   const { setUser } = useAuthContext();
+  const navigate = useNavigate();
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
@@ -27,6 +28,7 @@ const SignUp: FC = () => {
       if (data?.user) {
         setUser(data?.user);
         toast.success(data.message || "Registration successful");
+        navigate("/");
       }
     } catch (error) {
       console.error("Error registering user", error);

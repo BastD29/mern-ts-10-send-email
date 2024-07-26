@@ -31,6 +31,7 @@ async function fetcher<T>(params: ApiRequestType): Promise<ApiResponseType<T>> {
     method: params.method || "get",
     body: params?.body && JSON.stringify(params.body),
     headers: _headers,
+    credentials: "include",
   });
   console.log("response:", response);
 
