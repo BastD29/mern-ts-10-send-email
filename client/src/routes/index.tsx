@@ -18,8 +18,8 @@ export const routes: RouteObject[] = [
     path: "/auth",
     element: <AuthLayout />,
     children: [
-      { path: "signin", element: <SignIn /> },
       { path: "signup", element: <SignUp /> },
+      { path: "signin", element: <SignIn /> },
     ],
   },
   {

@@ -1,7 +1,7 @@
 import { ChangeEvent, FC, FormEvent, useState } from "react";
 import { RegisterParamsType, register } from "../../services/auth";
 import { useAuthContext } from "../../hooks/useAuthContext";
-
+import { toast } from "react-toastify";
 import style from "./SignUp.module.scss";
 
 const formInitialValues: RegisterParamsType = {
@@ -26,9 +26,12 @@ const SignUp: FC = () => {
 
       if (data?.user) {
         setUser(data?.user);
+        toast.success(data.message || "Registration successful");
       }
     } catch (error) {
       console.error("Error registering user", error);
+      const errorMessage = (error as Error).message || "Error registering user";
+      toast.error(errorMessage);
       setError("Error");
     }
   };
