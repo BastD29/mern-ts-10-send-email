@@ -13,9 +13,14 @@ type LoginParamsType = {
   password: string;
 };
 
+type RegisterResponseType = {
+  message: string;
+  user: UserType;
+};
+
 const register = async (
   body: RegisterParamsType
-): Promise<ApiResponseType<any>> =>
+): Promise<ApiResponseType<RegisterResponseType>> =>
   fetcher({
     method: "post",
     url: REGISTER,
@@ -42,3 +47,4 @@ const getProfile = async (): Promise<ApiResponseType<UserType>> =>
   });
 
 export { register, login, logout, getProfile };
+export type { RegisterParamsType, LoginParamsType };
