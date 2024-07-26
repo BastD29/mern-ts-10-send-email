@@ -8,7 +8,7 @@ const AuthLayout: FC = () => {
   return (
     <div className={style["auth-layout"]}>
       <Suspense fallback={<LoaderLayout />}>
-        <Header />
+        <Header layout="auth" />
         <Outlet />
       </Suspense>
     </div>

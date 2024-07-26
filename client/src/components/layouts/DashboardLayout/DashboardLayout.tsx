@@ -8,7 +8,7 @@ const DashboardLayout: FC = () => {
   return (
     <div className={style["dashboard-layout"]}>
       <Suspense fallback={<LoaderLayout />}>
-        <Header />
+        <Header layout="dashboard" />
         <Outlet />
       </Suspense>
     </div>
