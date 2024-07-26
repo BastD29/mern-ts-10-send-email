@@ -12,7 +12,7 @@ const formInitialValues: RegisterParamsType = {
 
 const SignUp: FC = () => {
   const [formData, setFormData] = useState(formInitialValues);
-  const [error, setError] = useState<string>("");
+  // const [error, setError] = useState<string>("");
 
   const { setUser } = useAuthContext();
 
@@ -32,7 +32,7 @@ const SignUp: FC = () => {
       console.error("Error registering user", error);
       const errorMessage = (error as Error).message || "Error registering user";
       toast.error(errorMessage);
-      setError("Error");
+      // setError("Error");
     }
   };
 
@@ -47,7 +47,7 @@ const SignUp: FC = () => {
   return (
     <form className={style["signup"]} onSubmit={handleSubmit}>
       <h2>Sign up</h2>
-      {error && <p className={style["error"]}>{error}</p>}
+      {/* {error && <p className={style["error"]}>{error}</p>} */}
       <input
         type="text"
         name="name"
