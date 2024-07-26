@@ -17,7 +17,7 @@ const register = async (req: Request, res: Response) => {
     (req.session as SessionType).userId = (
       user._id as mongoose.Types.ObjectId
     ).toString();
-    res.status(201).json({ message: "User registered" });
+    res.status(201).json({ message: "User registered", user });
   } catch (error) {
     res.status(401).send((error as Error).message);
   }
