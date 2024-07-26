@@ -1,7 +1,12 @@
 import { RouteObject } from "react-router-dom";
-import { DashboardLayout, Home, AuthLayout, NotFound } from "./routes";
-import SignIn from "../pages/SignIn/SignIn";
-import SignUp from "../pages/SignUp/SignUp";
+import {
+  DashboardLayout,
+  Home,
+  AuthLayout,
+  NotFound,
+  SignIn,
+  SignUp,
+} from "./routes";
 
 export const routes: RouteObject[] = [
   {

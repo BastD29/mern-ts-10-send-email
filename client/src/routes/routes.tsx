@@ -15,3 +15,11 @@ export const Home: LazyExoticComponent<FC> = lazy(
 export const NotFound: LazyExoticComponent<FC> = lazy(
   () => import("../pages/NotFound/NotFound")
 );
+
+export const SignIn: LazyExoticComponent<FC> = lazy(
+  () => import("../pages/SignIn/SignIn")
+);
+
+export const SignUp: LazyExoticComponent<FC> = lazy(
+  () => import("../pages/SignUp/SignUp")
+);
