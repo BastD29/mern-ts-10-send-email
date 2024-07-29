@@ -11,7 +11,7 @@ const Header: FC = () => {
 
   return (
     <header className={style["header"]}>
-      {/* {user ? (
+      {user ? (
         <div className={style["header__profile"]}>
           <p>Welcome, {user.email}</p>
           <button onClick={handleLogout}>Logout</button>
@@ -31,12 +31,6 @@ const Header: FC = () => {
             Sign up
           </NavLink>
         </nav>
-      )} */}
-      {user && (
-        <div className={style["header__profile"]}>
-          <p>Welcome, {user.email}</p>
-          <button onClick={handleLogout}>Logout</button>
-        </div>
       )}
     </header>
   );

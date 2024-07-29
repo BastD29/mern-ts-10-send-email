@@ -18,6 +18,10 @@ type RegisterResponseType = {
   user: UserType;
 };
 
+type ResponseType = {
+  user: UserType;
+};
+
 const register = async (
   body: RegisterParamsType
 ): Promise<ApiResponseType<RegisterResponseType>> =>
@@ -40,7 +44,7 @@ const logout = async (): Promise<ApiResponseType<void>> =>
     url: LOGOUT,
   });
 
-const getProfile = async (): Promise<ApiResponseType<UserType>> =>
+const getProfile = async (): Promise<ApiResponseType<ResponseType>> =>
   fetcher({
     method: "get",
     url: PROFILE,
