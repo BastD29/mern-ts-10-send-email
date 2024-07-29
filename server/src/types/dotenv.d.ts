@@ -6,11 +6,11 @@ declare namespace NodeJS {
     MONGO_URI: string;
 
     // nodemailer
-    HOST: string;
-    NODEMAILER_PORT: string;
-    AUTH_USER: string;
-    AUTH_PASS: string;
-    FROM: string;
-    TO: string;
+    EMAIL_HOST: string;
+    EMAIL_PORT: number;
+    EMAIL_AUTH_USER: string;
+    EMAIL_AUTH_PASS: string;
+    EMAIL_FROM: string;
+    EMAIL_TO: string;
   }
 }

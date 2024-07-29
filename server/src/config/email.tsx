@@ -2,22 +2,30 @@ import nodemailer from "nodemailer";
 import { Email } from "../email";
 import React from "react";
 import { render } from "@react-email/components";
+import {
+  EMAIL_AUTH_PASS,
+  EMAIL_AUTH_USER,
+  EMAIL_FROM,
+  EMAIL_HOST,
+  EMAIL_PORT,
+  EMAIL_TO,
+} from "./environments";
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.hostinger.com",
-  port: 465,
+  host: EMAIL_HOST,
+  port: Number(EMAIL_PORT),
   secure: true,
   auth: {
-    user: "test@testaroo.net",
-    pass: "i8s4w7Zlwe0F4bdr&",
+    user: EMAIL_AUTH_USER,
+    pass: EMAIL_AUTH_PASS,
   },
 });
 
 const emailHtml = render(<Email url="https://example.com" />);
 
 const options = {
-  from: "test@testaroo.net",
-  to: "miranoc510@maxturns.com",
+  from: EMAIL_FROM,
+  to: EMAIL_TO,
   subject: "hello world",
   html: emailHtml,
 };

@@ -11,12 +11,12 @@ const {
   MONGO_URI,
 
   // nodemailer
-  HOST,
-  NODEMAILER_PORT,
-  AUTH_USER,
-  AUTH_PASS,
-  FROM,
-  TO,
+  EMAIL_HOST,
+  EMAIL_PORT,
+  EMAIL_AUTH_USER,
+  EMAIL_AUTH_PASS,
+  EMAIL_FROM,
+  EMAIL_TO,
 } = process.env;
 
 export {
@@ -26,10 +26,10 @@ export {
   MONGO_URI,
 
   // nodemailer
-  HOST,
-  NODEMAILER_PORT,
-  AUTH_USER,
-  AUTH_PASS,
-  FROM,
-  TO,
+  EMAIL_HOST,
+  EMAIL_PORT,
+  EMAIL_AUTH_USER,
+  EMAIL_AUTH_PASS,
+  EMAIL_FROM,
+  EMAIL_TO,
 };
