@@ -18,6 +18,11 @@ type RegisterResponseType = {
   user: UserType;
 };
 
+type LoginResponseType = {
+  message: string;
+  user: Omit<UserType, "name">;
+};
+
 type LogoutResponseType = {
   message: string;
 };
@@ -35,7 +40,9 @@ const register = async (
     body: { name: body.name, email: body.email, password: body.password },
   });
 
-const login = async (body: LoginParamsType): Promise<ApiResponseType<any>> =>
+const login = async (
+  body: LoginParamsType
+): Promise<ApiResponseType<LoginResponseType>> =>
   fetcher({
     method: "post",
     url: LOGIN,

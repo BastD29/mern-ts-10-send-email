@@ -13,13 +13,11 @@ const formInitialValues: RegisterParamsType = {
 
 const SignUp: FC = () => {
   const [formData, setFormData] = useState(formInitialValues);
-  // const [error, setError] = useState<string>("");
   const { setUser } = useAuthContext();
   const navigate = useNavigate();
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    // console.log(formData);
 
     try {
       const { data } = await register(formData);
@@ -49,7 +47,6 @@ const SignUp: FC = () => {
   return (
     <form className={style["signup"]} onSubmit={handleSubmit}>
       <h2>Sign up</h2>
-      {/* {error && <p className={style["error"]}>{error}</p>} */}
       <input
         type="text"
         name="name"
