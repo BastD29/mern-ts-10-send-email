@@ -8,7 +8,9 @@ type AuthProviderProps = {
 };
 
 export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
-  const [user, setUser] = useState<UserType | null>(null);
+  const [user, setUser] = useState<UserType | Omit<UserType, "name"> | null>(
+    null
+  );
 
   console.log("user:", user);
 

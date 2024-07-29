@@ -2,7 +2,7 @@ import { Context, Dispatch, SetStateAction, createContext } from "react";
 import { /* SetUserActionType, */ UserType } from "../../models/user";
 
 type AuthContextType = {
-  user: UserType | null;
+  user: UserType | Omit<UserType, "name"> | null;
   // setUser: Dispatch<SetStateAction<SetUserActionType>>;
   setUser: Dispatch<SetStateAction<UserType | Omit<UserType, "name"> | null>>;
 };
