@@ -1,13 +1,27 @@
 import { FC } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import { logout } from "../../services/auth";
+import { toast } from "react-toastify";
 import style from "./Header.module.scss";
 
 const Header: FC = () => {
-  const { user } = useAuthContext();
+  const navigate = useNavigate();
+  const { user, setUser } = useAuthContext();
   console.log("user:", user);
 
-  const handleLogout = async () => {};
+  const handleLogout = async () => {
+    try {
+      const { data } = await logout();
+      setUser(null);
+      toast.success(data?.message);
+      navigate("/auth/signin");
+    } catch (error) {
+      console.error("Logout failed:", error);
+      const errorMessage = (error as Error).message || "Logout failed";
+      toast.error(errorMessage);
+    }
+  };
 
   return (
     <header className={style["header"]}>

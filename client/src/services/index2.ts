@@ -38,7 +38,7 @@ async function fetcher<T>(params: ApiRequestType): Promise<ApiResponseType<T>> {
   if (response.ok) {
     if (response.status !== 204) {
       const jsonResponse = await response.json();
-      console.log("jsonResponse:", jsonResponse);
+      // console.log("jsonResponse:", jsonResponse);
 
       return { data: jsonResponse };
     }

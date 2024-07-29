@@ -18,6 +18,10 @@ type RegisterResponseType = {
   user: UserType;
 };
 
+type LogoutResponseType = {
+  message: string;
+};
+
 type ResponseType = {
   user: UserType;
 };
@@ -38,9 +42,9 @@ const login = async (body: LoginParamsType): Promise<ApiResponseType<any>> =>
     body: { email: body.email, password: body.password },
   });
 
-const logout = async (): Promise<ApiResponseType<void>> =>
+const logout = async (): Promise<ApiResponseType<LogoutResponseType>> =>
   fetcher({
-    method: "get",
+    method: "post",
     url: LOGOUT,
   });
 
