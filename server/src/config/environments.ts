@@ -4,7 +4,6 @@ const env = process.env.NODE_ENV || "development";
 
 dotenv.config({ path: `./environments/.env.${env}` });
 
-const { NODE_ENV, ALLOWED_ORIGIN, PORT, SESSION_SECRET, MONGO_URI } =
-  process.env;
+const { NODE_ENV, ALLOWED_ORIGIN, PORT, MONGO_URI } = process.env;
 
-export { NODE_ENV, ALLOWED_ORIGIN, PORT, SESSION_SECRET, MONGO_URI };
+export { NODE_ENV, ALLOWED_ORIGIN, PORT, MONGO_URI };
