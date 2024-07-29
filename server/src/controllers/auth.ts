@@ -17,7 +17,7 @@ const register = async (req: Request, res: Response) => {
     (req.session as SessionType).userId = (
       user._id as mongoose.Types.ObjectId
     ).toString();
-    res.status(201).json({ message: "User registered", user });
+    res.status(201).json({ message: "User registered successfully", user });
   } catch (error) {
     res.status(401).send((error as Error).message);
   }
@@ -50,7 +50,7 @@ const logout = async (req: Request, res: Response) => {
         throw err;
       }
       res.clearCookie("connect.sid");
-      return res.status(200).json({ message: "Logout successful" });
+      return res.status(200).json({ message: "User logged out successfully" });
     });
   } catch (error) {
     return res.status(500).json({ message: "Logout failed", error });
