@@ -17,7 +17,7 @@ const register = async (req: Request, res: Response) => {
     (req.session as SessionType).userId = (
       user._id as mongoose.Types.ObjectId
     ).toString();
-    res.status(201).json({ message: "User registered successfully", user });
+    res.status(201).json({ message: "User successfully registered", user });
   } catch (error) {
     res.status(401).send((error as Error).message);
   }
@@ -34,7 +34,7 @@ const login = async (req: Request, res: Response) => {
     (req.session as SessionType).userId = (
       user._id as mongoose.Types.ObjectId
     ).toString();
-    res.status(200).json({ message: "User logged in" });
+    res.status(200).json({ message: "User successfully logged in", user });
   } catch (error) {
     res.status(500).send((error as Error).message);
   }
