@@ -6,6 +6,7 @@
     "build": "tsc",
     "build:production": "NODE_ENV=production tsc",
     "start": "node dist/index.js",
+    "start:production": "NODE_ENV=production node dist/index.js",
     "dev": "nodemon"
   },
   "keywords": [],
