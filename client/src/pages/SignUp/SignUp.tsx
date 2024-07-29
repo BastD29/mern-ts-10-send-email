@@ -2,8 +2,8 @@ import { ChangeEvent, FC, FormEvent, useState } from "react";
 import { RegisterParamsType, register } from "../../services/auth";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { toast } from "react-toastify";
-import style from "./SignUp.module.scss";
 import { useNavigate } from "react-router-dom";
+import style from "./SignUp.module.scss";
 
 const formInitialValues: RegisterParamsType = {
   name: "",

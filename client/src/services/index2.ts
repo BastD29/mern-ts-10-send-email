@@ -22,10 +22,10 @@ const getHeaders = async () => {
 
 async function fetcher<T>(params: ApiRequestType): Promise<ApiResponseType<T>> {
   const headers = await getHeaders();
-  console.log("headers:", headers);
+  // console.log("headers:", headers);
 
   const _headers: any = { ...headers, ...params?.headers };
-  console.log("_headers:", _headers);
+  // console.log("_headers:", _headers);
 
   const response = await fetch(`${params.baseUrl || BASE_URL}${params.url}`, {
     method: params.method || "get",
@@ -33,12 +33,12 @@ async function fetcher<T>(params: ApiRequestType): Promise<ApiResponseType<T>> {
     headers: _headers,
     credentials: "include",
   });
-  console.log("response:", response);
+  // console.log("response:", response);
 
   if (response.ok) {
     if (response.status !== 204) {
       const jsonResponse = await response.json();
-      console.log("jsonResponse:", jsonResponse);
+      // console.log("jsonResponse:", jsonResponse);
 
       return { data: jsonResponse };
     }

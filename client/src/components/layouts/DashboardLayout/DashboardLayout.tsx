@@ -1,14 +1,14 @@
 import { FC, Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import LoaderLayout from "../LoaderLayout/LoaderLayout";
-import Header from "../../Header/Header";
+import Header from "../../Header/Header2";
 import style from "./DashboardLayout.module.scss";
 
 const DashboardLayout: FC = () => {
   return (
     <div className={style["dashboard-layout"]}>
       <Suspense fallback={<LoaderLayout />}>
-        <Header layout="dashboard" />
+        <Header />
         <Outlet />
       </Suspense>
     </div>
