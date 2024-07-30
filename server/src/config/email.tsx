@@ -1,5 +1,4 @@
 import nodemailer from "nodemailer";
-
 import React from "react";
 import { render } from "@react-email/components";
 import {
