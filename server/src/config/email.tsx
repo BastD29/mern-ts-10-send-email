@@ -23,11 +23,18 @@ const transporter = nodemailer.createTransport({
 
 const emailHtml = render(<Email url="https://example.com" />);
 
-const options = {
+// const options = {
+//   from: EMAIL_FROM,
+//   to: EMAIL_TO,
+//   subject: "hello world",
+//   html: emailHtml,
+// };
+
+const getEmailOptions = (to: string) => ({
   from: EMAIL_FROM,
-  to: EMAIL_TO,
+  to,
   subject: "hello world",
   html: emailHtml,
-};
+});
 
-export { transporter, options };
+export { transporter, getEmailOptions };
