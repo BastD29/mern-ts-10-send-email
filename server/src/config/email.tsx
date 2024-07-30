@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-import { Email } from "../email";
+
 import React from "react";
 import { render } from "@react-email/components";
 import {
@@ -10,6 +10,7 @@ import {
   EMAIL_PORT,
   EMAIL_TO,
 } from "./environments";
+import Email from "../emails/email";
 
 const transporter = nodemailer.createTransport({
   host: EMAIL_HOST,
