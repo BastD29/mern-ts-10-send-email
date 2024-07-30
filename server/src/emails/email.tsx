@@ -1,16 +1,16 @@
-import { Button, Html } from "@react-email/components";
+import { Button, Heading, Html } from "@react-email/components";
 import * as React from "react";
 
 interface EmailProps {
-  url: string;
+  email: string;
 }
 
-export const MyEmail: React.FC<EmailProps> = ({ url }) => {
+export const MyEmail: React.FC<EmailProps> = ({ email }) => {
   return (
     <Html>
+      <Heading style={{ color: "#333" }}>Welcome, {email}</Heading>
       <Button
-        // href="https://example.com"
-        href={url}
+        href="https://example.com"
         style={{ background: "#000", color: "#fff", padding: "12px 20px" }}
       >
         Click me

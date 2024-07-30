@@ -7,7 +7,6 @@ import {
   EMAIL_FROM,
   EMAIL_HOST,
   EMAIL_PORT,
-  EMAIL_TO,
 } from "./environments";
 import Email from "../emails/email";
 
@@ -21,20 +20,15 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const emailHtml = render(<Email url="https://example.com" />);
+const getEmailOptions = (to: string) => {
+  const emailHtml = render(<Email email={to} />);
 
-// const options = {
-//   from: EMAIL_FROM,
-//   to: EMAIL_TO,
-//   subject: "hello world",
-//   html: emailHtml,
-// };
-
-const getEmailOptions = (to: string) => ({
-  from: EMAIL_FROM,
-  to,
-  subject: "hello world",
-  html: emailHtml,
-});
+  return {
+    from: EMAIL_FROM,
+    to,
+    subject: "hello world",
+    html: emailHtml,
+  };
+};
 
 export { transporter, getEmailOptions };
